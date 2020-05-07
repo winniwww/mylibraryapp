@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
+var cors = require("cors");
+
 
 require('./models');
 
+
+app.use(cors());
 // body-parser middleware
-app.use(bodyParser.urlencoded({ extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 
 // GET home page
 app.get("/", (req, res) => {
