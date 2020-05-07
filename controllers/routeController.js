@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 //provide the controller a link to the author model
 var authors = require('../models/author.js');
 

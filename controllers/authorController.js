@@ -1,12 +1,43 @@
-// provide the controller a link to the author model
-var authors = require('../models/author.js');
+const mongoose = require("mongoose");
 
-// Function to handle a request to get all authors
-const getAllAuthors = (req, res) => {
-  res.send(authors); // return the list of authors
+// import author model
+const Author = mongoose.model("author");
+
+
+// function to handle a request to get all authors
+const getAllAuthors = async (req, res) => {
+
+  try {
+    const all_authors = await Author.find();
+    return res.send(all_authors);
+  } catch (err) {
+    res.status(400);
+    return res.send("Database query failed");
+  }
 };
 
-// Remember to export the callbacks
+
+
+
+// function to modify author by ID
+const updateAuthor = async (req, res) => {
+  res.send("Working on this feature");
+};
+
+// function to add author
+const addAuthor = async (req, res) => {
+ res.send("Working on this feature");
+};
+
+// function to get author by id
+const getAuthorByID = (req, res) => {
+  res.send("Working on this feature");
+};
+
+// remember to export the functions
 module.exports = {
   getAllAuthors,
+  getAuthorByID,
+  addAuthor,
+  updateAuthor
 };
