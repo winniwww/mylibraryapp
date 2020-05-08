@@ -5,7 +5,6 @@ const authorRouter = express.Router();
 
 // require the author controller
 const authorController = require('../controllers/authorController.js');
-const routeController = require('../controllers/routeController.js');
 
 // handle the GET request on root of author-management path,
 // i.e. get all authors
