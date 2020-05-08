@@ -32,7 +32,7 @@ export function addAuthor(author) {
   // return fetch statement to add an author
 }
 
-export function updateAuthor(authorID, author) {
+export function updateAuthor(author) {
   const { id, first_name, last_name } = author;
   if (!id) {
     alert("must include an id");
@@ -43,9 +43,21 @@ export function updateAuthor(authorID, author) {
     return;
   }
 
-  const endpoint = BASE_URL + `/author-management/${id}`;
+  const endpoint = BASE_URL + `/author-management/update`;
 
   // return fetch query to update an author
+  return fetch(endpoint, {
+    method: "PUT",
+    headers: {
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({
+      id,
+      first_name,
+      last_name
+    })
+  })
+  .then(res => window.location.reload());
 }
 
 export function deleteAuthor(id) {

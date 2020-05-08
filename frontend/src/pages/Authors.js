@@ -46,26 +46,31 @@ function Author(author) {
 function AuthorExtended(props) {
   const { id, first_name, last_name, showUpdate } = props;
 
-  // const [id_input, setId] = useState(id);
-  // const [first_input, setFirstName] = useState(first_name);
-  // const [last_input, setLastName] = useState(last_name);
+  const [id_input, setId] = useState(id);
+  const [first_input, setFirstName] = useState(first_name);
+  const [last_input, setLastName] = useState(last_name);
 
   function onSubmit() {
     // call upate author function
-    // updateAuthor({
-    //   id: id_input,
-    //   first_name: first_input,
-    //   last_name: last_input
-    // });
+    updateAuthor({
+      id: id_input,
+      first_name: first_input,
+      last_name: last_input
+    });
   }
 
   return (
     <div className={`author-expand ${showUpdate ? "show" : ""}`}>
       <form>
-        {/* TODO - add value and onChange properties to inputs */}
-        <input type="text" name="id" />
-        <input type="text" name="first_name" />
-        <input type="text" name="last_name" />
+        <input type="text" name="id" value={id_input} onChange={event => {
+          setId(event.target.value);
+        }}/>
+        <input type="text" name="first_name" value={first_input} onChange={event => {
+          setFirstName(event.target.value);
+        }}/>
+        <input type="text" name="last_name" value={last_input} onChange={event => {
+          setLastName(event.target.value);
+        }}/>
         <Button className={"btn-warning"} onClick={onSubmit}>
           Update
         </Button>
