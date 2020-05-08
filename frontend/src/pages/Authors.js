@@ -16,8 +16,15 @@ export default function Authors() {
   console.log(authors);
 
   // Display a list of the authors
-  return null;
-}
+  return (
+    <div>
+    <h1>Authors List</h1>
+    {authors.map(author => (
+      <Author key={author.id} {...author} />
+    ))}
+    </div>
+  );
+ }
 
 function Author(author) {
   const { id, first_name, last_name } = author;

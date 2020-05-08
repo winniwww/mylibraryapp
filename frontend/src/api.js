@@ -32,7 +32,7 @@ export function addAuthor(author) {
   // return fetch statement to add an author
 }
 
-export function updateAuthor(author) {
+export function updateAuthor(authorID, author) {
   const { id, first_name, last_name } = author;
   if (!id) {
     alert("must include an id");

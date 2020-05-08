@@ -10,7 +10,9 @@ const routeController = require('../controllers/routeController.js');
 // handle the GET request on root of author-management path,
 // i.e. get all authors
 authorRouter.get('/', authorController.getAllAuthors);
-authorRouter.get('/:id', routeController.getAuthorByID);
+authorRouter.get('/:id', authorController.getAuthorByID);
+authorRouter.post('/add', authorController.addAuthor);
+authorRouter.put('/update', authorController.updateAuthor);
 
 // export the router
 module.exports = authorRouter;
